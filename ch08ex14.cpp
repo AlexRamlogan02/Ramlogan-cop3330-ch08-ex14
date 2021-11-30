@@ -25,22 +25,25 @@ int alpha(const char c, const char d); //a function to test if a const char is t
 
 int main (void){
 
+    //const declarations. these will never change unless its definition is changed
     const int constant = 2;
     const char alphaLetter = 'a';
+
+    //input declarations
     string word;
     int input;
 
     //find the double
-    cout << "what number do you want to double?\n";
+    cout << "What number do you want to double?\n";
     cin >> input;       
     f(constant, input);
 
 
-    do //ask the user to input words that start with a until a false answer is returned
+    do //ask the user to input words that start with 'a' until a false answer is returned
     {
-        cout << "tell me a letter that starts with a letter a\n";
+        cout << "Tell me a letter that starts with a letter a\n";
         cin >> word;
-    } while (alpha(alphaLetter, word[0]) == 0); //while it is a letter that starts with the letter a
+    } while (alpha(alphaLetter, word[0]) != 0); //while it is a letter that starts with the letter a
     
     cout << word << " doesnt start with a!\n";
 
@@ -53,9 +56,5 @@ void f(const int a, int b){
 }
 
 int alpha(const char c, const char d){
-    if (c == d) //if they match return 0
-    {
-        return 0;
-    }
-    return 1; //if not return 1;
+    return (c == d);
 }
